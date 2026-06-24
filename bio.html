@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Saya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <div class="header-content">
+                <h1>Profil Saya</h1>
+                <div class="accent-line"></div>
+            </div>
+        </header>
+
+        <!-- Menu Navigasi Interaktif -->
+        <nav>
+            <ul>
+                <li><a href="#" class="nav-link active" onclick="switchTab(event, 'beranda')">Beranda</a></li>
+                <li><a href="#" class="nav-link" onclick="switchTab(event, 'tentang')">Tentang</a></li>
+                <li><a href="#" class="nav-link" onclick="switchTab(event, 'kontak')">Kontak</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <!-- ================= TAB BERANDA ================= -->
+            <div id="beranda" class="tab-content active-tab">
+                <div class="grid-layout">
+                    <div class="card profil">
+                        <div class="avatar-wrapper">
+                            <img src="image/foto.jpg.jpeg" alt="Foto Profil">
+                        </div>
+                        <h2>FAREL AZARI</h2>
+                        <span class="badge">Mahasiswa Jurusan Rekayasa Mesin</span>
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="card item-info">
+                            <div class="meta-label">Tempat, Tanggal Lahir</div>
+                            <p class="meta-value">Sungailiat, 28 Maret 2007</p>
+                        </div>
+
+                        <div class="card item-info">
+                            <div class="meta-label">Alamat</div>
+                            <p class="meta-value">Sungailiat,SinarJaya/jelutung</p>
+                        </div>
+                    </div>
+
+                    <div class="card full education-card">
+                        <div class="meta-label">Pendidikan</div>
+                        <h3 class="edu-title">D3 Perancangan Mekanik</h3>
+                        <div class="decorator-bar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= TAB TENTANG (PENGALAMAN) ================= -->
+            <div id="tentang" class="tab-content">
+                <div class="card full section-header-card">
+                    <div class="meta-label">Eksplorasi & Keahlian</div>
+                    <h2 class="section-title">Pengalaman & Proyek</h2>
+                    <p class="section-subtitle">Fokus pada perancangan mekanik, kalkulasi teknik, dan pengembangan rekayasa mesin.</p>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="card timeline-card">
+                            <span class="time-tag">Sekarang</span>
+                            <h3>Studi Manufaktur & Perancangan</h3>
+                            <p>Aktif dalam mendalami pemodelan 3D komponen mesin, analisis kekuatan material, dan pembuatan tata letak gambar kerja (drafting) standar industri.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="card timeline-card">
+                            <span class="time-tag">Pengembangan</span>
+                            <h3>Praktikum Rekayasa Mesin</h3>
+                            <p>Berpengalaman dalam mengoperasikan perangkat lunak CAD/CAE untuk mensimulasikan sistem mekanikal dan elemen mesin.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= TAB KONTAK (SARAN & CATATAN) ================= -->
+            <div id="kontak" class="tab-content">
+                <div class="grid-layout">
+                    <!-- Detail Kontak Asli -->
+                    <div class="card kontak-info-card">
+                        <div class="meta-label">Hubungi Saya</div>
+                        <h2 class="card-title-heavy">Mari Berkolaborasi</h2>
+                        
+                        <div class="meta-group" style="margin-top: 25px;">
+                            <div class="meta-label">Email</div>
+                            <p class="meta-value highlight">farelpayeng2007@gmail.com</p>
+                        </div>
+                        <div class="meta-group" style="margin-top: 20px;">
+                            <div class="meta-label">Kontak Pribadi</div>
+                            <p class="meta-value phone">+62 83193562545</p>
+                        </div>
+                    </div>
+
+                    <!-- Form Saran & Catatan (Interaktif) -->
+                    <div class="card form-card">
+                        <div class="meta-label">Umpan Balik</div>
+                        <h3>Saran & Catatan</h3>
+                        <form onsubmit="handleSubmit(event)">
+                            <div class="form-group">
+                                <label for="nama">Nama / Instansi</label>
+                                <input type="text" id="nama" placeholder="Masukkan nama Anda" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pesan">Saran & Catatan Profesional</label>
+                                <textarea id="pesan" rows="4" placeholder="Tuliskan pesan, saran, atau peluang kolaborasi di sini..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit">Kirim Pesan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2025 payeng. All gamers idaman.</p>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript Ringan untuk Efek Pindah Menu -->
+    <script>
+        function switchTab(event, tabId) {
+            event.preventDefault();
+            
+            // Hapus kelas 'active' dari semua menu navigasi
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Hapus kelas 'active-tab' dari semua konten tab
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active-tab');
+            });
+            
+            // Tambahkan kelas active ke menu dan konten yang dipilih
+            event.currentTarget.classList.add('active');
+            document.getElementById(tabId).classList.add('active-tab');
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Terima kasih atas saran dan catatan Anda! Fitur simulasi kirim berhasil.');
+            document.getElementById('nama').value = '';
+            document.getElementById('pesan').value = '';
+        }
+    </script>
+</body>
+</html>
